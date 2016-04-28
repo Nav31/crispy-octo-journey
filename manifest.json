@@ -13,7 +13,7 @@
     "content_scripts": [
     {
     	"matches" : ["http://*/*", "https://*/*"],
-    	"js": ["jquery-1.12.3.min.js", "content.js"],
+    	"js": ["jquery-2.2.3.min.js", "content.js"],
     	"css": ["style.css"]
     }
   ],
