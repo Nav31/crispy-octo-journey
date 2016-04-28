@@ -10,15 +10,13 @@
     "default_popup": "popup.html"
   },
 
-  "background": {
-  		"scripts": [
-  			"background.js",
-  		]
-  	},
-
     "content_scripts": [
-    {"js": ["jquery-1.12.3.min.js"]}
+    {
+    	"matches" : ["http://*/*", "https://*/*"],
+    	"js": ["jquery-1.12.3.min.js", "content.js"]
+    }
   ],
+    
   	
   "permissions": [
     "activeTab",
