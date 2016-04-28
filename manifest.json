@@ -12,9 +12,13 @@
 
   "background": {
   		"scripts": [
-  			"background.js"
+  			"background.js",
   		]
   	},
+
+    "content_scripts": [
+    {"js": ["jquery-1.12.3.min.js"]}
+  ],
   	
   "permissions": [
     "activeTab",
