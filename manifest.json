@@ -19,7 +19,7 @@
     {
     	"matches" : ["http://*/*", "https://*/*"],
     	"js": ["jquery-2.2.3.min.js", "content.js"],
-    	"css": ["style.css"]
+    	"css": ["bootstrap.css", "style.css"]
     }
   ],
   "permissions": [
