@@ -7,3 +7,7 @@ textarea {
 	color: blue;
 }
 
+.whatever {
+	all: none !important;
+}
+
