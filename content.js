@@ -15,7 +15,7 @@ $(document).ready(function(){
 			commentElement.style.position = 'absolute';
 			commentElement.style.left = x+'px';
 			commentElement.style.top = y+'px';	
-			commentElement.style.zIndex = "10";
+			commentElement.style.zIndex = "9999";
 			console.log(commentElement);
 			document.body.appendChild(commentElement);	
 		});
