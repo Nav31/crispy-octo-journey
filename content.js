@@ -1,13 +1,24 @@
 
 
 $(document).ready(function(){
-	var value; 
-	chrome.storage.sync.get("value", function(vl){
-		value = vl;
-		var title = document.getElementsByTagName('title');
-		title[0].innerText = value.value;
+
+	chrome.storage.onChanged.addListener(function(value){
+		var commentElement = document.createElement('p');
 		console.log(value);
-		console.log(title);
+		var text = document.createTextNode(value.value.newValue);
+		commentElement.appendChild(text);
+
+		document.addEventListener('click', function(event){
+			var x = event.clientX;
+			var y = event.clientY;
+			console.log(x + y)
+			commentElement.style.position = 'absolute';
+			commentElement.style.left = x+'px';
+			commentElement.style.top = y+'px';	
+			commentElement.style.zIndex = "10";
+			console.log(commentElement);
+			document.body.appendChild(commentElement);	
+		});
 	});
 
-})
+});
