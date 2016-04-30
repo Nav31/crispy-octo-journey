@@ -1,5 +1,6 @@
 
 var coordinates;
+
 chrome.contextMenus.create({
 	title: "Leave Comment",
 	id: "radio1",

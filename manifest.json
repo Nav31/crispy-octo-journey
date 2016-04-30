@@ -26,6 +26,11 @@
     "activeTab",
     "https://ajax.googleapis.com/",
     "storage",
-    "contextMenus"
+    "contextMenus",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "web_accessible_resources" : [
+    "modal.html"
   ]
 }
