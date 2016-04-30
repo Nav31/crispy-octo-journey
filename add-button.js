@@ -1,7 +1,11 @@
 
 $(document).ready(function(){
+	// var modal = modal;
+
+		console.log(modal);
+		var $modal = $(modal);
+		console.log($modal);
 	(function() { 
-		
 		var log = document.getElementsByClassName('whatever');
 		var theDiv = document.createElement('div');
 		theDiv.setAttribute('id', 'thediv');
@@ -14,21 +18,47 @@ $(document).ready(function(){
 		var theButton = document.createElement('button');
 		theButton.setAttribute('class', 'whatever');
 
-		theButton.innerText = 'The Comment';
+		theButton.innerText = 'com';
 		theButton.style.position = 'relative';
 		theButton.style.left = (x - 20) +'px';
 		theButton.style.top = (y - 20) +'px';	
 		theButton.style.zIndex = "9999";
-		// theButton.setAttribute('href', chrome.extension.getURL('modal.html'));
-
+		theButton.setAttribute('class', 'btn btn-danger-outline');
+		theButton.setAttribute('data-toggle', 'modal');
+		theButton.setAttribute('data-target', '#myModal');
+		$modal.appendTo(theDiv);
 
 		document.getElementById('thediv').appendChild(theButton);
 
-		$('.whatever').click(function(){
-			// alert('hey you!');
-			// $('whatever').trigger('click');
-			// console.log('wtf');
-			window.open(chrome.extension.getURL('background.html'));
-		});
+				// Get the modal
+		var modal = document.getElementById('myModal');
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks on the button, open the modal 
+		theButton.onclick = function() {
+		    modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		    modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+		}
+
+		// $(theButton).on('click', function(){
+		// 	console.log('something');
+		// 	$modal.on()
+		// });
 	})();
 });
