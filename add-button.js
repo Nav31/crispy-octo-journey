@@ -2,9 +2,7 @@
 $(document).ready(function(){
 	// var modal = modal;
 
-		console.log(modal);
 		var $modal = $(modal);
-		console.log($modal);
 	(function() { 
 		var log = document.getElementsByClassName('whatever');
 		var theDiv = document.createElement('div');
@@ -51,9 +49,9 @@ $(document).ready(function(){
 		    }
 		}
 
-		// $(theButton).on('click', function(){
-		// 	console.log('something');
-		// 	$modal.on()
-		// });
+		$("#post").on('click', function(){
+			var o = $(this).prev().val();
+			console.log(o)
+		});
 	})();
 });
