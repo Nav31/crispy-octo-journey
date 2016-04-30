@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 	(function() { 
-		console.log(chrome);
+		
 		var log = document.getElementsByClassName('whatever');
 		var theDiv = document.createElement('div');
 		theDiv.setAttribute('id', 'thediv');
@@ -28,7 +28,7 @@ $(document).ready(function(){
 			// alert('hey you!');
 			// $('whatever').trigger('click');
 			// console.log('wtf');
-			window.open(chrome.extension.getURL('modal.html'));
+			window.open(chrome.extension.getURL('background.html'));
 		});
 	})();
 });
