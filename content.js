@@ -4,9 +4,6 @@ $(document).ready(function(){
 
 	chrome.storage.onChanged.addListener(function(value){
 
-		var modal = document.createElement('div');
-		modal.innerHtml = '<div><a data-target="#myModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#myModal">HELP</a></div>';
-
 		//will position our button to this div prepended to the body of the page.
 		var theDiv = document.createElement('div');
 		theDiv.setAttribute('id', 'thediv');
@@ -17,7 +14,7 @@ $(document).ready(function(){
 		$("body").prepend(theDiv);	
 		
 		document.addEventListener('click', function(event){
-			var log = document.getElementsByClassName('whatever')
+			var log = document.getElementsByClassName('whatever');
 			if(log.length > 0) return;
 			var theButton = document.createElement('button');
 			theButton.setAttribute('class', 'whatever');
@@ -32,12 +29,48 @@ $(document).ready(function(){
 			theButton.setAttribute('draggable', "true");
 			document.getElementById('thediv').appendChild(theButton);	
 		});
-
-		$(".whatever").on('click', function(){
-			document
-		})
 	});
 
 
 
 });
+
+
+//what do I want to do?
+
+//to activate the chrome extension, I click it and activate which cmkaes it active, no need for a pop up page.
+
+//right click of the mouse choose : leave a comment; Or can we do it cooler than a right click?
+
+//a pop up modal appears and ask you to fill in the comment. you write and click on post. 
+
+//The modal closes and a semi-transparent button is on the page.
+
+//if you click on the button again it brings back the modal with the text you previously wrote on it.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
