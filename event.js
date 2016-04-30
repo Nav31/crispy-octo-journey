@@ -1,27 +1,25 @@
 
+var coordinates;
 
-// chrome.browserAction.onClicked.addListener(function(tab) {
-// 	console.log('I have been clicked');
-// 	chrome.storage.sync.onChanged("value", function(value){
-// 		console.log(value);
-// 		chrome.runtime.sendMessage(value);
-// 	});
-// })
+chrome.contextMenus.create({
+	title: "Leave Comment",
+	id: "radio1",
+	contexts: ["all"]
+});
 
-// chrome.browserAction.onClicked.addListener(function (tab) { //Fired when User Clicks ICON
-// 	console.url
-//     if (tab.url) { // Inspect whether the place where user clicked matches with our list of URL
-//         chrome.tabs.executeScript(tab.id, {
-//             "file": "content.js"
-//         }, function () { // Execute your code
-//             console.log("Script Executed .. "); // Notification on Completion
-//         });
-//     }
-// });
+chrome.contextMenus.onClicked.addListener(myFunction);
 
-// console.log(chrome);
+chrome.runtime.onMessage.addListener(function(message){
+	console.log(message);
+	coordinates = message.split(' ');
+})
 
-// chrome.storage.onChanged.addListener(function(value){
-// 	console.log(value);
-	
-// })
+function myFunction() {
+	chrome.tabs.executeScript(null, { file: "jquery-2.2.3.min.js" });
+
+	chrome.tabs.executeScript(null, {
+		code: 'var x =' + coordinates[0] + "; var y = " + coordinates[1] + ";"
+	}, function() {
+		chrome.tabs.executeScript(null, { file: "add-button.js" });
+	});
+}
