@@ -1,15 +1,9 @@
 
 
 $(document).ready(function(){
-	chrome.runtime.onMessage.addListener(function(tabUrl){
-		console.log(tabUrl);
-	});
-	chrome.storage.sync.get('site', function(obj){
-		console.log(obj.site.theDiv);
-	});
-	chrome.storage.sync.get('url', function(obj){
-		console.log(obj);
-	});
+	// chrome.runtime.onMessage.addListener(function(tabUrl){
+	// 	console.log(tabUrl);
+	// });
 
 	//when the page loads we attach an empty div to the top of the page with absolute position.
 

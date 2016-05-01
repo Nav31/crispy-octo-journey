@@ -20,7 +20,6 @@ $(document).ready(function(){
 	theButton.setAttribute('data-toggle', 'modal');
 	theButton.setAttribute('data-target', '#myModal');
 	$modal.appendTo(theDiv);
-	console.log("TheDiv " + theDiv);
 	document.getElementById('thediv').appendChild(theButton);
 
 
@@ -35,10 +34,11 @@ $(document).ready(function(){
 				var newPar = $("<div class='alert alert-success'><p> user: " + comment + "</p></div>");
 				$(this).parent().append(newPar);
 				currentModal.css("display", "none");
-				console.log(theDiv);
-				chrome.storage.sync.set({ "theDiv" : theDiv }, function(){
-					chrome.runtime.sendMessage( 'save' );
+				chrome.runtime.sendMessage('save', function(url){
+					console.log(theDiv.baseURI)
+					console.log({site: theDiv, url: url});
 				});
+
 			} else {
 				alert('you didn\'t insert any comment');
 			}
