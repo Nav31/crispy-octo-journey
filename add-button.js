@@ -12,10 +12,11 @@ $(document).ready(function(){
 	theButton.style.left = (x - 20) +'px';
 	theButton.style.top = (y - 20) +'px';	
 	theButton.style.zIndex = "9997";
-	theButton.style.width = "15px";
-	theButton.style.height = "15px";
+	theButton.style.width = "1.5em";
+	theButton.style.height = "1.5em";
+	// theButton.style.border = "2px";
 
-	theButton.setAttribute('class', 'btn-xs btn-danger-outline');
+	theButton.setAttribute('class', 'btn btn-danger-outline');
 	theButton.setAttribute('data-toggle', 'modal');
 	theButton.setAttribute('data-target', '#myModal');
 	$modal.appendTo(theDiv);
