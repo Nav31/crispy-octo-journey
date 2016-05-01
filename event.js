@@ -15,15 +15,8 @@ chrome.runtime.onMessage.addListener(function(message){
 })
 
 function myFunction() {
-	chrome.tabs.executeScript(null, { file: "jquery-2.2.3.min.js" });
-
-	chrome.tabs.executeScript(null, {
-		code: 'var x =' + coordinates[0] + "; var y = " + coordinates[1] + ";"
-	}, function() {
-		
-		chrome.tabs.executeScript(null, {file: "modal.js"}, function(){
-
-			chrome.tabs.executeScript(null, { file: "add-button.js" });
-		});
-	});
+	
+	chrome.tabs.executeScript(null, { code: 'var x =' + coordinates[0] + "; var y = " + coordinates[1] + ";" });
+	chrome.tabs.executeScript(null, {file: "modal.js"});
+	chrome.tabs.executeScript(null, { file: "add-button.js" });
 }
