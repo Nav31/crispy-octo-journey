@@ -19,26 +19,30 @@ $(document).ready(function(){
 	theButton.setAttribute('data-toggle', 'modal');
 	theButton.setAttribute('data-target', '#myModal');
 	$modal.appendTo(theDiv);
-	console.log("TheDiv ", document.getElementById('thediv'));
+	console.log("TheDiv ", theDiv);
 	document.getElementById('thediv').appendChild(theButton);
 
-			// Get the modal
-	// var modal = document.getElementById('myModal');
 
 	$(theButton).on('click', function(){
+		// var $button = $(this);
 		currentModal = $(this).prev();
 		currentModal.css("display", "block");
-		currentModal.find("#postIt").on('click', function(){
-			var comment = $(this).prev();
-			var newPar = $("<div class='alert alert-success'><p> user: " + comment.val() + "</p></div>");
+		currentModal.find("#postIt").unbind('click').click(function(){
+
+			var comment = $(this).prev().val();
+			var newPar = $("<div class='alert alert-success'><p> user: " + comment + "</p></div>");
 			$(this).parent().append(newPar);
-			console.log($(this).parent().parent());
 			currentModal.css("display", "none");
-			console.log(theDiv);
-			chrome.runtime.sendMessage(theDiv);
+			chrome.storage.sync.set({ "theDiv" : theDiv }, function(){
+				chrome.runtime.sendMessage( 'save' );
+			});
 		});
-		currentModal.find("#closeIt").on('click', function(){
+		currentModal.find("#closeIt").unbind('click').click(function(){
 			currentModal.css("display", "none");
+			chrome.storage.sync.get("theDiv", function(thething){
+				console.dir(thething);
+			});
+
 		});
 	});
 

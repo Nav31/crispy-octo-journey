@@ -1,6 +1,12 @@
 
 
 $(document).ready(function(){
+	chrome.runtime.onMessage.addListener(function(tabUrl){
+		console.log(tabUrl);
+	})
+	chrome.storage.sync.get('url', function(obj){
+		console.log(obj.url);
+	})
 	var theDiv = document.createElement('div');
 		theDiv.setAttribute('id', 'thediv');
 		theDiv.style.width = 100 + "%";
