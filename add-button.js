@@ -41,6 +41,7 @@ $(document).ready(function(){
 		// When the user clicks on the button, open the modal 
 		theButton.onclick = function() {
 		    modal.style.display = "block";
+		    modal.find("textarea").val() = "";
 		};
 
 		// When the user clicks anywhere outside of the modal, close it
