@@ -1,6 +1,28 @@
 
 
 $(document).ready(function(){
+	chrome.runtime.onMessage.addListener(function(tabUrl){
+		console.log(tabUrl);
+	});
+	chrome.storage.sync.get('site', function(obj){
+		console.log(obj.site.theDiv);
+	});
+	chrome.storage.sync.get('url', function(obj){
+		console.log(obj);
+	});
+
+	//when the page loads we attach an empty div to the top of the page with absolute position.
+
+	var theDiv = document.createElement('div');
+		theDiv.setAttribute('id', 'thediv');
+		theDiv.style.width = 100 + "%";
+		theDiv.style.position = 'Absolute';
+		theDiv.style.left = "0px";
+		theDiv.style.top = "0px";
+		$("body").prepend(theDiv);
+
+		//when right click save the coordinates and send them to the event.js as a message.
+
 	$(document).on('contextmenu', function(event){
 			var x = event.clientX + document.body.scrollLeft;
 			var y = event.clientY + document.body.scrollTop;
@@ -8,21 +30,6 @@ $(document).ready(function(){
 			chrome.runtime.sendMessage( message );
 	});
 });
-
-
-//what do I want to do?
-
-//to activate the chrome extension, I click it and activate which cmkaes it active, no need for a pop up page.
-
-//right click of the mouse choose : leave a comment; Or can we do it cooler than a right click?
-
-//a pop up modal appears and ask you to fill in the comment. you write and click on post. 
-
-//The modal closes and a semi-transparent button is on the page.
-
-//if you click on the button again it brings back the modal with the text you previously wrote on it.
-
-
 
 
 
