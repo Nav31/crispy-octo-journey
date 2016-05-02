@@ -11,7 +11,8 @@ chrome.contextMenus.create({
 chrome.history.onVisited.addListener(function(history){
 	console.log(history.url);
 	chrome.runtime.onMessage.addListener(function(message, sender, response){
-		if(message === 'save') {
+		if(message === 'url') {
+			console.log('inside', history.url);
 			response(history.url);
 		}
 	});
@@ -24,6 +25,7 @@ chrome.contextMenus.onClicked.addListener(myFunction);
 //when a message is received we check, if it's equal to save we save the information in the storage with the current tab url.
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
+	console.log(message);
 	coordinates = message.split(' ');
 });
 
@@ -31,6 +33,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
 
 function myFunction() {
 	chrome.tabs.executeScript(null, { code: 'var x =' + coordinates[0] + "; var y = " + coordinates[1] + ";" });
+	chrome.tabs.executeScript(null, {file: "helper-functions.js"});
 	chrome.tabs.executeScript(null, {file: "modal.js"});
 	chrome.tabs.executeScript(null, { file: "add-button.js" });
 }

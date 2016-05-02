@@ -1,4 +1,5 @@
 var app = require('express')();
+var https = require('https');
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -15,5 +16,3 @@ app.use(function(req, res, next, err){
 app.listen(1337, function(){
 	console.log('listening on port 1337');
 })
-
-

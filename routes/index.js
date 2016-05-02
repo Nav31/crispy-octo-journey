@@ -2,6 +2,7 @@ var router = require('express').Router();
 var comments = [];
 
 router.post('/', function(req, res, next){
+	console.log(req.body);
 	saveOrReplaceHtml(req.body);
 	res.sendStatus(201);
 });
