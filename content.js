@@ -1,18 +1,18 @@
 
 
 $(document).ready(function(){
-	chrome.runtime.onMessage.addListener(function(tabUrl){
-		console.log(tabUrl);
-	});
-	chrome.storage.sync.get('site', function(obj){
-		console.log(obj.site.theDiv);
-	});
-	chrome.storage.sync.get('url', function(obj){
-		console.log(obj);
+	// chrome.runtime.onMessage.addListener(function(tabUrl){
+	// 	console.log(tabUrl);
+	// });
+
+	chrome.runtime.sendMessage('url', function(res){
+		console.log('historyUrl', res);
+		$.get('http://localhost:1337/api/comments/' + parseUrl(res), function(response, status){
+			console.log(response);
+		});
 	});
 
 	//when the page loads we attach an empty div to the top of the page with absolute position.
-
 	var theDiv = document.createElement('div');
 		theDiv.setAttribute('id', 'thediv');
 		theDiv.style.width = 100 + "%";
@@ -31,27 +31,7 @@ $(document).ready(function(){
 	});
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function parseUrl(url) {
+    return url.replace(/[\/\.\:]/g, '');
+}
 
